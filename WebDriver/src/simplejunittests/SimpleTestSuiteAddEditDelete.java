@@ -5,9 +5,10 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import simplejunittests.baseclasses.TestBase;
+import simplejunittests.baseclasses.TestBaseStaticBeforeAfterClass;
 import simplejunittests.helpers.Utilities;
 
-public class SimpleTestSuite extends TestBase {
+public class SimpleTestSuiteAddEditDelete extends TestBaseStaticBeforeAfterClass {
 
 	private String bodyText;
 
@@ -16,11 +17,20 @@ public class SimpleTestSuite extends TestBase {
 		logIn();
 		logOut();
 	}
-	
+
 	@Test
 	public void logInAddRecordDeleteRecordLogout() {
 		logIn();
 		addRecord();
+		deleteRecord();
+		logOut();
+	}
+	
+	@Test
+	public void logInAddRecordEditDeleteRecordLogout() {
+		logIn();
+		addRecord();
+		editRecord();
 		deleteRecord();
 		logOut();
 	}
@@ -74,8 +84,8 @@ public class SimpleTestSuite extends TestBase {
 		driver.findElement(By.linkText("Log Out")).click();
 		System.out.println("Log Out clicked");
 		/*
-		 //To handle an alert by dismissing it call the setter first
-		 help.setAcceptNextAlert(false);
+		 * //To handle an alert by dismissing it call the setter first
+		 * help.setAcceptNextAlert(false);
 		 */
 
 		// Handle the alert by accepting OK
@@ -135,8 +145,51 @@ public class SimpleTestSuite extends TestBase {
 			fail("Expected Confirmation Alert Not Found");
 		}
 
-		String alert = help.closeAlertAndGetItsText(); // Closes second info alert
+		String alert = help.closeAlertAndGetItsText(); // Closes second info
+														// alert
 		assertTrue("Didn't remove record. Alert text: " + alert, alert.contains("Record Removed"));
 		System.out.println("Test: Delete Record Completed");
 	}
+
+	private void editRecord() {
+		Utilities help = new Utilities(driver);
+		System.out.println("Test: Starting Edit Record");
+		driver.get(baseUrl + "/Edgesite2/sdocs/edit_record.php");
+		driver.findElement(By.id("username")).clear();
+		driver.findElement(By.id("username")).sendKeys("DoeJohn12");
+		driver.findElement(By.linkText("Submit")).click();
+
+		if (help.isAlertPresent()) {
+			String alert = help.closeAlertAndGetItsText();
+			System.out.println("Unexpected alert when editing record");
+			fail(alert);
+		}
+
+		//Set new mandatory fields
+		driver.findElement(By.id("house")).clear();
+		driver.findElement(By.id("adl1")).clear();
+		driver.findElement(By.id("town")).clear();
+		driver.findElement(By.id("county")).clear();
+		driver.findElement(By.id("postcode")).clear();
+		driver.findElement(By.id("house")).sendKeys("Placeholder House");
+		driver.findElement(By.id("adl1")).sendKeys("Example Street");
+		driver.findElement(By.id("town")).sendKeys("Madeupston");
+		driver.findElement(By.id("county")).sendKeys("Wyvern");
+		driver.findElement(By.id("postcode")).sendKeys("ZA1 1YB");
+		
+		driver.findElement(By.id("password")).clear();
+		driver.findElement(By.id("password")).sendKeys("4321password");
+		driver.findElement(By.linkText("Submit")).click();
+		
+		//There is no Alert upon success
+		if (help.isAlertPresent()) {
+			String alert = help.closeAlertAndGetItsText();
+			System.out.println("Unexpected alert after editing record");
+			fail(alert);
+		}
+		
+		// Assert record edited
+		System.out.println("Test: Edit Record Completed");
+	}
+
 }

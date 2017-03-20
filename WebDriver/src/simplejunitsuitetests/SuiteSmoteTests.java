@@ -1,27 +1,18 @@
-package simplejunittests;
+package simplejunitsuitetests;
 
 import static org.junit.Assert.*;
-
 import org.junit.Test;
-import org.openqa.selenium.By;
-import simplejunittests.baseclasses.TestBase;
+import simplejunittests.baseclasses.TestBaseStaticBeforeAfterClass;
 import simplejunittests.helpers.Utilities;
+import org.openqa.selenium.By;
 
-public class SimpleTestSuite extends TestBase {
+public class SuiteSmoteTests extends TestBaseStaticBeforeAfterClass {
 
 	private String bodyText;
 
 	@Test
-	public void logInAndLogOut() {
+	public void doAccess() {
 		logIn();
-		logOut();
-	}
-	
-	@Test
-	public void logInAddRecordDeleteRecordLogout() {
-		logIn();
-		addRecord();
-		deleteRecord();
 		logOut();
 	}
 
@@ -74,8 +65,8 @@ public class SimpleTestSuite extends TestBase {
 		driver.findElement(By.linkText("Log Out")).click();
 		System.out.println("Log Out clicked");
 		/*
-		 //To handle an alert by dismissing it call the setter first
-		 help.setAcceptNextAlert(false);
+		 * //To handle an alert by dismissing it call the setter first
+		 * help.setAcceptNextAlert(false);
 		 */
 
 		// Handle the alert by accepting OK
@@ -92,51 +83,4 @@ public class SimpleTestSuite extends TestBase {
 		System.out.println("Test: Logout Completed");
 	}
 
-	private void addRecord() {
-		Utilities help = new Utilities(driver);
-		System.out.println("Test: Starting Add Record");
-		driver.get(baseUrl + "/Edgesite2/sdocs/add_record.php");
-		driver.findElement(By.id("name")).clear();
-		driver.findElement(By.id("name")).sendKeys("John Doe");
-		driver.findElement(By.id("username")).clear();
-		driver.findElement(By.id("username")).sendKeys("DoeJohn12");
-		driver.findElement(By.id("pin")).clear();
-		driver.findElement(By.id("pin")).sendKeys("1234");
-		driver.findElement(By.id("password")).clear();
-		driver.findElement(By.id("password")).sendKeys("12password34");
-		driver.findElement(By.linkText("Submit")).click();
-		if (help.isAlertPresent()) {
-			String alert = help.closeAlertAndGetItsText();
-			if (!alert.contains("Record Added")) {
-				fail("Didn't add record. Alert text was: " + alert);
-			}
-		} else {
-			verificationErrors.append("Expected alert upon adding record");
-			fail("Expected Alert Not Found");
-		}
-		System.out.println("Test: Add Record Completed");
-	}
-
-	private void deleteRecord() {
-
-		Utilities help = new Utilities(driver);
-		System.out.println("Test: Starting Delete Record");
-		driver.get(baseUrl + "/Edgesite2/sdocs/remove_record.php");
-		driver.findElement(By.id("username")).clear();
-		driver.findElement(By.id("username")).sendKeys("DoeJohn12");
-		driver.findElement(By.linkText("Submit")).click();
-		if (help.isAlertPresent()) {
-			String alert = help.closeAlertAndGetItsText();
-			if (!alert.contains("Do You Really want to Remove this record")) {
-				fail("Didn't remove record. Confirmation Alert text was: " + alert);
-			}
-		} else {
-			verificationErrors.append("Expected alert upon removing record");
-			fail("Expected Confirmation Alert Not Found");
-		}
-
-		String alert = help.closeAlertAndGetItsText(); // Closes second info alert
-		assertTrue("Didn't remove record. Alert text: " + alert, alert.contains("Record Removed"));
-		System.out.println("Test: Delete Record Completed");
-	}
 }
