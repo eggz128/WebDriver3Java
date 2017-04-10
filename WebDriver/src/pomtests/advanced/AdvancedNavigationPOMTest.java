@@ -19,19 +19,23 @@ public class AdvancedNavigationPOMTest extends TestBaseStaticBeforeAfterClass {
 		// Instantiate Home Page
 		HomePagePOMAdvanced home = new HomePagePOMAdvanced(driver);
 		// CLick Login on Home. Intellisense suggests setUsername from Login  POM!
-		home.clickLogin().setUsername("Also fluid")
-							.setUsername("A password")
+		home.clickLogin().setUsername("Edgewords")
+							.setPassword("Edgewords123")
 							.submitLogin();
-		
-
 		// Go back home
 		driver.get(baseUrl + "/Edgesite2/");
 
 		// Alternatively clickLogin() and store the returned LoginPOMAdvanced
 		// object in a new reference
-		LoginPOMAdvanced loginAlt = home.clickLogin();
-		loginAlt.clearUsername().setUsername("last try");
+		LoginPOMAdvanced loginAlt = home.clickLogin(); //More verbose, but more readable?
+		loginAlt.clearUsername().setUsername("Also fluid");
 		Thread.sleep(2000);
+		driver.get(baseUrl + "/Edgesite2/");
+		home.clickLogin(); //Not stale - no @CacheLookup
+		loginAlt.clearUsername().setUsername("stale"); //Stale
+		//Username field on Login was cached. We navigated away from page, came back
+		//and tried to use same reference. Because it was Cached PageFactory was not
+		//allowed to rescan for the username.
 	}
 
 }

@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
@@ -23,13 +24,16 @@ public class LoginPOMAdvanced {
 		PageFactory.initElements(driver, this);
 		System.out.println("Wait For Login Page");
 		help = new Utilities(driver);
+		//Exception to "no aserts in POM class" rule
+		//We may assert in the constructor to prove the correct page has loaded
+		//Below waits for username id then asserts
 		assertTrue("Wrong page or Page did not appear in given time",
 				help.waitForElementToBeClickable(By.id("username"), 3));	
 		System.out.println("Login Page Ready");
 	}
 	
-	WebElement username; //Finds an element if it has an id or name of username
-	@FindBy (id="password") WebElement password; //More explicit
+	@CacheLookup WebElement username; //Finds an element if it has an id or name of username
+	@CacheLookup @FindBy (id="password") WebElement password; //More explicit
 	@FindBy (linkText="Submit") WebElement submit; //Short form
 	@FindBy (how = How.LINK_TEXT, using = "Clear") WebElement clear; //Long form
 	
@@ -80,12 +84,8 @@ public class LoginPOMAdvanced {
 		setUsername(strUsername);
 		setPassword(strPassword);
 		submitLogin();
-		try {
-			driver.switchTo().alert();
-			return false;
-		} catch (NoAlertPresentException e) {
-			return true;
-		}
+		//Use helper to return true if no alert present
+		return !help.isAlertPresent();
 	}
 	
 	public boolean loginExpectFail(String strUsername, String strPassword){
@@ -93,12 +93,8 @@ public class LoginPOMAdvanced {
 		setUsername(strUsername);
 		setPassword(strPassword);
 		submitLogin();
-		try {
-			driver.switchTo().alert();
-			return true;
-		} catch (NoAlertPresentException e) {
-			return false;
-		}
+		//Use helper to return true if alert present (error on log in)
+		return help.isAlertPresent();
 	}
 	
 }
