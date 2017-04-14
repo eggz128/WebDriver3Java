@@ -34,7 +34,7 @@ public class LoginPOM {
 		return username.getAttribute("value"); //not getText()
 		//getText gets an elements inner text
 		//inputs are 'empty'/'void' (no closing tag)
-		//the text inside an input is held in it's value attribute
+		//the text inside an input is held in its value attribute
 	}
 	
 	public void clearPassword(){

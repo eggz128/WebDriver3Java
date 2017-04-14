@@ -3,10 +3,10 @@ package pom_tests;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
+import simplejunittests.baseclasses.TestBaseStaticBeforeAfterClass;
 
 import pom_pages.HomePagePOM;
 import pom_pages.LoginPOM;
-import simplejunittests.baseclasses.TestBaseStaticBeforeAfterClass;
 
 public class LoginClearFormTest extends TestBaseStaticBeforeAfterClass {
 	// Chrome set up and teardown performed in base class
@@ -27,7 +27,7 @@ public class LoginClearFormTest extends TestBaseStaticBeforeAfterClass {
 		LoginPOM login = new LoginPOM(driver);
 
 		login.clearForm();
-		// login.setUsername("NotCleared"); //Break the test
+		//login.setUsername("NotCleared"); //Break the test
 
 		String username = login.getUsername();
 		String password = login.getPassword();
@@ -43,8 +43,7 @@ public class LoginClearFormTest extends TestBaseStaticBeforeAfterClass {
 			System.out.println("Test Failed: Clear Form Test");
 		}
 		System.out.println("End of: Clear Form Test");
-		//assertTrue("Login Form not empty", formEmpty); 
-		//is it desirable to pull down the test with a failure trace on fail
+		assertTrue("Login Form not empty", formEmpty); 
 	}
 
 }
