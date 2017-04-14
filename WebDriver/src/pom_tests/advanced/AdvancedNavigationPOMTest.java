@@ -1,9 +1,10 @@
-package pomtests.advanced;
+package pom_tests.advanced;
 
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
-import pompages.advanced.*;
+
+import pom_pages.advanced.*;
 import simplejunittests.baseclasses.TestBaseStaticBeforeAfterClass;
 
 public class AdvancedNavigationPOMTest extends TestBaseStaticBeforeAfterClass {

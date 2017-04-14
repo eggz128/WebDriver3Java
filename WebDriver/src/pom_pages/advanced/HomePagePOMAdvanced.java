@@ -1,4 +1,4 @@
-package pompages.advanced;
+package pom_pages.advanced;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

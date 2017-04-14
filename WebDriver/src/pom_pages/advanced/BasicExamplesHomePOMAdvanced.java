@@ -1,4 +1,4 @@
-package pompages.advanced;
+package pom_pages.advanced;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,8 +22,9 @@ public class BasicExamplesHomePOMAdvanced {
 	@FindBy (linkText="CSS/XPath") WebElement menuCSS;
 	
 	//Methods that cause navigation return the class of the page to navigate to
-	public void clickHome(){
+	public BasicExamplesHomePOMAdvanced clickHome(){
 		menuBasicHome.click();
+		return this;
 	}
 	
 	

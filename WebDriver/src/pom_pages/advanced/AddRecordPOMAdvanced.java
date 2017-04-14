@@ -1,4 +1,4 @@
-package pompages.advanced;
+package pom_pages.advanced;
 
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;

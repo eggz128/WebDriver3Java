@@ -1,10 +1,11 @@
-package pomtests;
+package pom_tests;
 
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
-import pompages.HomePagePOM;
-import pompages.LoginPOM;
+
+import pom_pages.HomePagePOM;
+import pom_pages.LoginPOM;
 import simplejunittests.baseclasses.TestBaseStaticBeforeAfterClass;
 
 public class LoginValidInvalid extends TestBaseStaticBeforeAfterClass {

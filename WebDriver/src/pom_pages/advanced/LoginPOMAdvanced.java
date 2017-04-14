@@ -1,4 +1,4 @@
-package pompages.advanced;
+package pom_pages.advanced;
 
 import static org.junit.Assert.*;
 import org.openqa.selenium.By;
