@@ -36,5 +36,20 @@
 	<classpathentry kind="lib" path="C:/Users/edgewords/Documents/BuildDeps/Selenium/lib/xalan-2.7.2.jar"/>
 	<classpathentry kind="lib" path="C:/Users/edgewords/Documents/BuildDeps/Selenium/lib/xercesImpl-2.11.0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/edgewords/Documents/BuildDeps/Selenium/lib/xml-apis-1.4.01.jar"/>
+	<classpathentry kind="lib" path="C:/Users/edgewords/Documents/BuildDeps/ExtentReports/extentreports-2.41.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/edgewords/Documents/BuildDeps/ExtentReports/lib/ant-1.7.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/edgewords/Documents/BuildDeps/ExtentReports/lib/ant-launcher-1.7.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/edgewords/Documents/BuildDeps/ExtentReports/lib/bsh-2.0b4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/edgewords/Documents/BuildDeps/ExtentReports/lib/bson-3.0.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/edgewords/Documents/BuildDeps/ExtentReports/lib/freemarker-2.3.23.jar"/>
+	<classpathentry kind="lib" path="C:/Users/edgewords/Documents/BuildDeps/ExtentReports/lib/hamcrest-core-1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/edgewords/Documents/BuildDeps/ExtentReports/lib/jcommander-1.48.jar"/>
+	<classpathentry kind="lib" path="C:/Users/edgewords/Documents/BuildDeps/ExtentReports/lib/jsoup-1.8.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/edgewords/Documents/BuildDeps/ExtentReports/lib/junit-4.10.jar"/>
+	<classpathentry kind="lib" path="C:/Users/edgewords/Documents/BuildDeps/ExtentReports/lib/mongodb-driver-3.0.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/edgewords/Documents/BuildDeps/ExtentReports/lib/mongodb-driver-core-3.0.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/edgewords/Documents/BuildDeps/ExtentReports/lib/snakeyaml-1.15.jar"/>
+	<classpathentry kind="lib" path="C:/Users/edgewords/Documents/BuildDeps/ExtentReports/lib/sqlite-jdbc-3.8.11.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/edgewords/Documents/BuildDeps/ExtentReports/lib/testng-6.9.9.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
