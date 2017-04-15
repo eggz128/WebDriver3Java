@@ -74,6 +74,7 @@ public class LoginPOM {
 		submitLogin();
 		try {
 			driver.switchTo().alert();
+			driver.switchTo().alert().dismiss();
 			return false;
 		} catch (NoAlertPresentException e) {
 			return true;
@@ -87,6 +88,7 @@ public class LoginPOM {
 		submitLogin();
 		try {
 			driver.switchTo().alert();
+			driver.switchTo().alert().dismiss();
 			return true;
 		} catch (NoAlertPresentException e) {
 			return false;

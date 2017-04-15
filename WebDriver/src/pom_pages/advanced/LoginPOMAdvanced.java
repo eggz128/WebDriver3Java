@@ -85,7 +85,12 @@ public class LoginPOMAdvanced {
 		setPassword(strPassword);
 		submitLogin();
 		//Use helper to return true if no alert present
-		return !help.isAlertPresent();
+		if(!help.isAlertPresent()){
+			return true;
+		} else {
+			driver.switchTo().alert().dismiss(); //cleanup
+			return false;
+		}
 	}
 	
 	public boolean loginExpectFail(String strUsername, String strPassword){
@@ -94,7 +99,12 @@ public class LoginPOMAdvanced {
 		setPassword(strPassword);
 		submitLogin();
 		//Use helper to return true if alert present (error on log in)
-		return help.isAlertPresent();
+		if(help.isAlertPresent()){
+			driver.switchTo().alert().dismiss(); //cleanup
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 }
