@@ -20,7 +20,7 @@ public class LoginValidInvalid extends TestBaseStaticBeforeAfterClass {
 
 	@Test
 	public void loginValid()  {
-		System.out.println("Starting: Clear Form Test");
+		System.out.println("Starting: Attempt Login with Valid Data");
 		LoginPOM login = new LoginPOM(driver);
 		assertTrue("Expected to be able to log in but did not",
 					login.loginExpectSuccess("Edgewords", "Edgewords123"));
@@ -28,7 +28,7 @@ public class LoginValidInvalid extends TestBaseStaticBeforeAfterClass {
 	
 	@Test
 	public void loginInvalid() {
-		System.out.println("Starting: Clear Form Test");
+		System.out.println("Starting: Attempt Login with Invalid Data");
 		LoginPOM login = new LoginPOM(driver);
 		assertTrue("Expected to not log in but did",
 				login.loginExpectFail("Invalid", "Edgewords123"));
