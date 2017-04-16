@@ -1,4 +1,4 @@
-package pom_tests;
+package pom_tests.advanced;
 
 import static org.junit.Assert.*;
 
