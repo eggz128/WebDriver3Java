@@ -51,5 +51,6 @@
 	<classpathentry kind="lib" path="C:/Users/edgewords/Documents/BuildDeps/ExtentReports/lib/snakeyaml-1.15.jar"/>
 	<classpathentry kind="lib" path="C:/Users/edgewords/Documents/BuildDeps/ExtentReports/lib/sqlite-jdbc-3.8.11.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/edgewords/Documents/BuildDeps/ExtentReports/lib/testng-6.9.9.jar"/>
+	<classpathentry kind="lib" path="C:/Users/edgewords/Documents/BuildDeps/junit-toolbox-2.3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
