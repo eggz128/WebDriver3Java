@@ -19,10 +19,10 @@ public class PopUp extends TestBase {
 		driver.get(baseUrl + "/Edgesite2/docs/dynamicContent.html");
 		driver.findElement(By.cssSelector("#right-column > a:nth-of-type(2)")).click();
 		assertTrue("Didn't handle pop up correctly",
-				HandleSubWindow("Pop-up Window", "Pop-up Window Content"));
+				handleSubWindow("Pop-up Window", "Pop-up Window Content"));
 	}
 
-	private boolean HandleSubWindow (String wintitle, String checkresponse) throws InterruptedException {
+	private boolean handleSubWindow (String wintitle, String checkresponse) throws InterruptedException {
 		boolean handled = false;
 		// Store handle to parent window to return to later
 		String parentWindowHandler = driver.getWindowHandle(); 
